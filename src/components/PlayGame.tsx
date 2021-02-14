@@ -7,10 +7,12 @@ import {
   Paper,
   FormControlLabel,
   Button,
+  Typography,
 } from "@material-ui/core";
 import React, { Dispatch, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GameState, HeaderAction } from "../AppReducer";
+import { mafiaArray, shahrvandArray } from "./GameDetails";
 import RoleCard from "./RoleCard";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -72,15 +74,44 @@ export const PlayGame: React.FC<PlaygameProps> = ({ state, dispatch }) => {
         </Paper>
       </Grid>
       <Grid container spacing={3} className={classes.root}>
-        {state.playerRoles.map((player, i) => (
-          <Grid key={i} item md={2} xs={12}>
-            <RoleCard
-              dispatch={dispatch}
-              {...player}
-              name={show ? player.name : "..."}
-            />
-          </Grid>
-        ))}
+        <Grid item md={12} xs={12}>
+          <Paper className={classes.paper}>
+            <Grid item xs={12} md={12}>
+              <Typography variant="h5">شهروندان</Typography>
+            </Grid>
+            {state.playerRoles.map(
+              (player, i) =>
+                shahrvandArray.includes(player.role) && (
+                  <Grid key={i} item md={2} xs={12}>
+                    <RoleCard
+                      dispatch={dispatch}
+                      {...player}
+                      name={show ? player.name : "..."}
+                    />
+                  </Grid>
+                )
+            )}
+          </Paper>
+        </Grid>
+        <Grid item md={12} xs={12}>
+          <Paper className={classes.paper}>
+            <Grid item xs={12} md={12}>
+              <Typography variant="h5">مافیا</Typography>
+            </Grid>
+            {state.playerRoles.map(
+              (player, i) =>
+                mafiaArray.includes(player.role) && (
+                  <Grid key={i} item md={2} xs={12}>
+                    <RoleCard
+                      dispatch={dispatch}
+                      {...player}
+                      name={show ? player.name : "..."}
+                    />
+                  </Grid>
+                )
+            )}
+          </Paper>
+        </Grid>
       </Grid>
     </Grid>
   );

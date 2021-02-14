@@ -82,7 +82,7 @@ export const TakeRole: React.FC<TakeRoleProps> = ({ state, dispatch }) => {
       type: "playerRoles",
       payload: {
         id: remaining - 1,
-        name,
+        name: name ? name : "نامعلوم",
         role: randomRole,
         alive: true,
       },
@@ -122,7 +122,7 @@ export const TakeRole: React.FC<TakeRoleProps> = ({ state, dispatch }) => {
             variant="contained"
             color="primary"
             onClick={takeRoleHandler}
-            disabled={name.length < 3 || !!!remaining || !!role}
+            disabled={!!!remaining || !!role}
             fullWidth
           >
             گرفتن نقش

@@ -55,7 +55,6 @@ export const GameGroundHeader: React.FC<GameGroundProps> = ({
     });
   };
 
-  console.log(location);
   return (
     <>
       <div className={classes.drawerHeader} />

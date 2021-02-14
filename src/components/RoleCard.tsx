@@ -13,9 +13,12 @@ import { HeaderAction, Person } from "../AppReducer";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {},
+    root: {
+      margin: theme.spacing(2),
+    },
     removed: {
       background: "red",
+      margin: theme.spacing(2),
     },
     media: {
       height: 140,

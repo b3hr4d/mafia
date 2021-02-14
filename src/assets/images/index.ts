@@ -33,7 +33,7 @@ import ankabot from "./ankabot.jpg";
 import ahangar from "./ahangar.jpg";
 import afsongar from "./afsongar.jpg";
 
-export default {
+const Images = {
   yakoza,
   vakil,
   tyler,
@@ -69,3 +69,5 @@ export default {
   ahangar,
   afsongar,
 };
+
+export default Images;

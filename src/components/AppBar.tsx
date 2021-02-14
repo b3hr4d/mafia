@@ -104,7 +104,7 @@ export const AppBarDrawer: React.FC<AppBarProps> = ({ state, dispatch }) => {
     dispatch({ type: "mode", payload: name });
     setOpen(false);
   };
-
+  console.log(state);
   return (
     <>
       <AppBar

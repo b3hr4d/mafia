@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
 function App() {
   const classes = useStyles();
   const [state, dispatch] = useReducer(HeaderReducer, initialState);
-  console.log(state);
   return (
     <div className={classes.root}>
       <CssBaseline />
