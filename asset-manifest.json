@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/mafia/static/css/main.7d180cbf.chunk.css",
+    "main.js": "/mafia/static/js/main.df5e589a.chunk.js",
+    "main.js.map": "/mafia/static/js/main.df5e589a.chunk.js.map",
+    "runtime-main.js": "/mafia/static/js/runtime-main.72bcf095.js",
+    "runtime-main.js.map": "/mafia/static/js/runtime-main.72bcf095.js.map",
+    "static/js/2.932c89b3.chunk.js": "/mafia/static/js/2.932c89b3.chunk.js",
+    "static/js/2.932c89b3.chunk.js.map": "/mafia/static/js/2.932c89b3.chunk.js.map",
+    "index.html": "/mafia/index.html",
+    "static/css/main.7d180cbf.chunk.css.map": "/mafia/static/css/main.7d180cbf.chunk.css.map",
+    "static/js/2.932c89b3.chunk.js.LICENSE.txt": "/mafia/static/js/2.932c89b3.chunk.js.LICENSE.txt",
+    "static/media/mafia.9742db38.jpg": "/mafia/static/media/mafia.9742db38.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72bcf095.js",
+    "static/js/2.932c89b3.chunk.js",
+    "static/css/main.7d180cbf.chunk.css",
+    "static/js/main.df5e589a.chunk.js"
+  ]
+}
