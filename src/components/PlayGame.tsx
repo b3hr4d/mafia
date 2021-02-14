@@ -1,5 +1,14 @@
-import { createStyles, makeStyles, Paper, Theme } from "@material-ui/core";
-import React, { Dispatch, useEffect } from "react";
+import {
+  createStyles,
+  Grid,
+  makeStyles,
+  Switch,
+  Theme,
+  Paper,
+  FormControlLabel,
+  Button,
+} from "@material-ui/core";
+import React, { Dispatch, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { GameState, HeaderAction } from "../AppReducer";
 import RoleCard from "./RoleCard";
@@ -25,24 +34,54 @@ interface PlaygameProps {
   dispatch: Dispatch<HeaderAction>;
 }
 
-export const PlayGame: React.FC<PlaygameProps> = ({ state }) => {
+export const PlayGame: React.FC<PlaygameProps> = ({ state, dispatch }) => {
+  const [show, setShow] = useState(false);
   const history = useHistory();
   const classes = useStyles();
 
-  useEffect(() => {
-    if (state.playerRoles.length < 6) {
-      history.push("/");
-    }
-  }, [state.playerRoles, history]);
-
+  const newGameHandler = () => {
+    dispatch({ type: "NewGame" });
+    history.push("/mafia");
+  };
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
+    <Grid container spacing={3} className={classes.root}>
+      <Grid item md={12} xs={12}>
+        <Paper className={classes.paper}>
+          <Grid item md={4} xs={6}>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={show}
+                  onChange={() => setShow((prev) => !prev)}
+                  color="primary"
+                />
+              }
+              label="نمایش نام"
+            />
+          </Grid>
+          <Grid item md={4} xs={1} />
+          <Grid item md={4} xs={5}>
+            <Button
+              onClick={newGameHandler}
+              variant="contained"
+              color="secondary"
+            >
+              اتمام بازی
+            </Button>
+          </Grid>
+        </Paper>
+      </Grid>
+      <Grid container spacing={3} className={classes.root}>
         {state.playerRoles.map((player, i) => (
-          // @ts-ignorets
-          <RoleCard key={i} role={player.role} name={player.name} />
+          <Grid key={i} item md={2} xs={12}>
+            <RoleCard
+              dispatch={dispatch}
+              {...player}
+              name={show ? player.name : "..."}
+            />
+          </Grid>
         ))}
-      </Paper>
-    </div>
+      </Grid>
+    </Grid>
   );
 };

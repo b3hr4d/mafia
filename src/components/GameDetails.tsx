@@ -89,6 +89,8 @@ export const AllRols = {
   ...shahrvands,
   ...mafias,
   ...mostaghel,
+  shahrvandSade: "شهروند‌ساده",
+  mafiaSade: "مافیا‌ساده",
 } as const;
 
 export const PlayerRols = {

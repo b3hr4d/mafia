@@ -1,4 +1,5 @@
 import React, { Dispatch } from "react";
+import { Paper } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { HeaderAction, GameState } from "../AppReducer";
 import GameMode from "./GameDetails";
@@ -9,14 +10,19 @@ import {
   InputLabel,
   InputAdornment,
   Typography,
-  Divider,
 } from "@material-ui/core";
 import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      padding: theme.spacing(1),
+      alignSelf: "center",
+      marginBottom: theme.spacing(2),
+    },
     paper: {
       paddingBottom: theme.spacing(2),
+      alignSelf: "center",
     },
     devider: {
       marginBottom: theme.spacing(2),
@@ -24,7 +30,6 @@ const useStyles = makeStyles((theme: Theme) =>
     drawerHeader: {
       display: "flex",
       padding: theme.spacing(0, 1),
-      // necessary for content to be below app bar
       ...theme.mixins.toolbar,
     },
   })
@@ -34,6 +39,7 @@ interface GameGroundProps {
   state: GameState;
   dispatch: Dispatch<HeaderAction>;
 }
+const allowedLink = ["/mafia", "/mafia/roles", "/mafia/"];
 
 export const GameGroundHeader: React.FC<GameGroundProps> = ({
   state,
@@ -48,23 +54,25 @@ export const GameGroundHeader: React.FC<GameGroundProps> = ({
       payload: Number(event.target.value),
     });
   };
+
+  console.log(location);
   return (
     <>
       <div className={classes.drawerHeader} />
-      <Grid container className={classes.drawerHeader} item xs={12} spacing={1}>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h5" className={classes.paper}>
-            {GameMode[state.mode].name}
-          </Typography>
-        </Grid>
-        {location.pathname === "/" ||
-          (location.pathname === "/roles" && (
-            <Grid item xs={12} md={6}>
-              <FormControl
-                fullWidth
-                className={classes.paper}
-                variant="outlined"
-              >
+      <Paper className={classes.root}>
+        <Grid
+          container
+          className={classes.drawerHeader}
+          item
+          xs={12}
+          spacing={1}
+        >
+          <Grid item xs={12} md={6} className={classes.paper}>
+            <Typography variant="h5">{GameMode[state.mode].name}</Typography>
+          </Grid>
+          {allowedLink.some((item) => item === location.pathname) && (
+            <Grid item xs={12} md={6} className={classes.paper}>
+              <FormControl fullWidth variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-amount">
                   تعداد بازیکنان
                 </InputLabel>
@@ -80,9 +88,9 @@ export const GameGroundHeader: React.FC<GameGroundProps> = ({
                 />
               </FormControl>
             </Grid>
-          ))}
-      </Grid>
-      <Divider variant="middle" className={classes.devider} />
+          )}
+        </Grid>
+      </Paper>
     </>
   );
 };

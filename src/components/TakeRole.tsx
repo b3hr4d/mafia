@@ -65,7 +65,7 @@ export const TakeRole: React.FC<TakeRoleProps> = ({ state, dispatch }) => {
     dispatch({
       type: "DeletePlayerRoles",
     });
-    history.push("/roles");
+    history.push("/mafia/roles");
   };
 
   const nextPersonHandler = () => {
@@ -81,8 +81,10 @@ export const TakeRole: React.FC<TakeRoleProps> = ({ state, dispatch }) => {
     dispatch({
       type: "playerRoles",
       payload: {
+        id: remaining - 1,
         name,
         role: randomRole,
+        alive: true,
       },
     });
   };
@@ -164,7 +166,7 @@ export const TakeRole: React.FC<TakeRoleProps> = ({ state, dispatch }) => {
             variant="contained"
             color="secondary"
             fullWidth
-            onClick={() => history.push("/play")}
+            onClick={() => history.push("/mafia/play")}
           >
             دیدن نقشها
           </Button>

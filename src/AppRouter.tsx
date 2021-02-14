@@ -17,16 +17,16 @@ export const AppRouter: React.FC<AppRouterProps> = ({ state, dispatch }) => {
     <>
       <GameGroundHeader state={state} dispatch={dispatch} />
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/mafia">
           <GameGround state={state} dispatch={dispatch} />
         </Route>
-        <Route path="/roles">
+        <Route exact path="/mafia/roles">
           <GameRoles state={state} dispatch={dispatch} />
         </Route>
-        <Route path="/takerol">
+        <Route exact path="/mafia/takerol">
           <TakeRole state={state} dispatch={dispatch} />
         </Route>
-        <Route path="/play">
+        <Route exact path="/mafia/play">
           <PlayGame state={state} dispatch={dispatch} />
         </Route>
       </Switch>

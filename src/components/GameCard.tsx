@@ -33,17 +33,14 @@ const GameCard: React.FC<GameCardProps> = ({ title, link, dispatch }) => {
   const history = useHistory();
 
   const cardHandler = () => {
-    dispatch({ type: "NewGame" });
+    if (link === "/mafia/roles") dispatch({ type: "NewGame" });
     history.push(link);
   };
+
   return (
     <Card className={classes.root}>
       <CardActionArea onClick={cardHandler}>
-        <CardMedia
-          className={classes.media}
-          image={MafiaImage}
-          title="Contemplative Reptile"
-        />
+        <CardMedia className={classes.media} image={MafiaImage} title={title} />
         <CardContent>
           <Typography
             className={classes.title}

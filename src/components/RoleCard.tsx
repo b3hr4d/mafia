@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -6,22 +6,16 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
-import MafiaImage from "../assets/images/mafia.jpg";
+import Images from "../assets/images";
 import { Theme, createStyles } from "@material-ui/core/styles";
 import { AllRols } from "./GameDetails";
+import { HeaderAction, Person } from "../AppReducer";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      minWidth: 150,
-      maxWidth: 200,
-      margin: theme.spacing(3),
-    },
+    root: {},
     removed: {
-      minWidth: 150,
-      maxWidth: 200,
       background: "red",
-      margin: theme.spacing(3),
     },
     media: {
       height: 140,
@@ -32,20 +26,35 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-interface RoleCardProps {
-  role: keyof typeof AllRols;
-  name: string;
+interface RoleCardProps extends Person {
+  dispatch: Dispatch<HeaderAction>;
 }
 
-const RoleCard: React.FC<RoleCardProps> = ({ role, name }) => {
-  const [removed, setRemoved] = useState(false);
+const RoleCard: React.FC<RoleCardProps> = ({
+  id,
+  role,
+  name,
+  alive,
+  dispatch,
+}) => {
   const classes = useStyles();
 
   return (
-    <Card className={removed ? classes.removed : classes.root}>
-      <CardActionArea onClick={() => setRemoved((prev) => !prev)}>
-        <CardHeader title={AllRols[role]} />
-        <CardMedia className={classes.media} image={MafiaImage} title={role} />
+    <Card className={alive ? classes.root : classes.removed}>
+      <CardActionArea
+        onClick={() =>
+          dispatch({
+            type: "isDead",
+            payload: { id },
+          })
+        }
+      >
+        <CardHeader className={classes.title} title={AllRols[role]} />
+        <CardMedia
+          className={classes.media}
+          image={Images[role]}
+          title={role}
+        />
         <CardContent>
           <Typography
             className={classes.title}

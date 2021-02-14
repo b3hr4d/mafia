@@ -123,7 +123,7 @@ export const GameRoles: React.FC<GameRolesProps> = ({ state, dispatch }) => {
       type: "FinalRoles",
       payload: filler,
     });
-    history.push("/takerol");
+    history.push("/mafia/takerol");
   };
   const deleteHandler = () => {
     dispatch({
