@@ -43,7 +43,7 @@ export const PlayGame: React.FC<PlaygameProps> = ({ state, dispatch }) => {
 
   const newGameHandler = () => {
     dispatch({ type: "NewGame" });
-    history.push("/mafia");
+    history.push("/");
   };
   return (
     <Grid container spacing={3} className={classes.root}>
@@ -77,7 +77,7 @@ export const PlayGame: React.FC<PlaygameProps> = ({ state, dispatch }) => {
         <Grid item md={12} xs={12}>
           <Paper className={classes.paper}>
             <Grid item xs={12} md={12}>
-              <Typography variant="h5">شهروندان</Typography>
+              <Typography variant="h5">مثبت</Typography>
             </Grid>
             {state.playerRoles.map(
               (player, i) =>
@@ -96,7 +96,7 @@ export const PlayGame: React.FC<PlaygameProps> = ({ state, dispatch }) => {
         <Grid item md={12} xs={12}>
           <Paper className={classes.paper}>
             <Grid item xs={12} md={12}>
-              <Typography variant="h5">مافیا</Typography>
+              <Typography variant="h5">منفی</Typography>
             </Grid>
             {state.playerRoles.map(
               (player, i) =>

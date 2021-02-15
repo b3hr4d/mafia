@@ -23,15 +23,14 @@ interface GameGroundProps {
 
 export const GameGround: React.FC<GameGroundProps> = ({ state, dispatch }) => {
   const classes = useStyles();
-  console.log(state);
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item md={6} xs={12} className={classes.paper}>
-        <GameCard title="بازی جدید" link="/mafia/roles" dispatch={dispatch} />
+        <GameCard title="بازی جدید" link="/roles" dispatch={dispatch} />
       </Grid>
       {state.playerRoles.length ? (
         <Grid item md={6} xs={12} className={classes.paper}>
-          <GameCard title="دیدن نقشها" link="/mafia/play" dispatch={dispatch} />
+          <GameCard title="دیدن نقشها" link="/play" dispatch={dispatch} />
         </Grid>
       ) : null}
     </Grid>

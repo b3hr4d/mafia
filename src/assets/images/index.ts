@@ -32,6 +32,8 @@ import bazgo from "./bazgo.jpg";
 import ankabot from "./ankabot.jpg";
 import ahangar from "./ahangar.jpg";
 import afsongar from "./afsongar.jpg";
+import karagah from "./karagah.jpg";
+import doctor from "./doctor.jpg";
 
 const Images = {
   yakoza,
@@ -68,6 +70,8 @@ const Images = {
   ankabot,
   ahangar,
   afsongar,
+  karagah,
+  doctor,
 };
 
 export default Images;

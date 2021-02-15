@@ -15,17 +15,14 @@ import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      padding: theme.spacing(1),
+    title: {
+      padding: theme.spacing(1.5),
       alignSelf: "center",
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(1),
     },
     paper: {
-      paddingBottom: theme.spacing(2),
       alignSelf: "center",
-    },
-    devider: {
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(1),
     },
     drawerHeader: {
       display: "flex",
@@ -39,7 +36,7 @@ interface GameGroundProps {
   state: GameState;
   dispatch: Dispatch<HeaderAction>;
 }
-const allowedLink = ["/mafia", "/mafia/roles", "/mafia/"];
+const allowedLink = ["/", "/roles"];
 
 export const GameGroundHeader: React.FC<GameGroundProps> = ({
   state,
@@ -54,23 +51,19 @@ export const GameGroundHeader: React.FC<GameGroundProps> = ({
       payload: Number(event.target.value),
     });
   };
-
+  const allowed = allowedLink.some((item) => item === location.pathname);
   return (
     <>
       <div className={classes.drawerHeader} />
-      <Paper className={classes.root}>
-        <Grid
-          container
-          className={classes.drawerHeader}
-          item
-          xs={12}
-          spacing={1}
-        >
-          <Grid item xs={12} md={6} className={classes.paper}>
+      <Grid container className={classes.drawerHeader} item xs={12} spacing={1}>
+        <Grid item xs={12} md={allowed ? 6 : 12}>
+          <Paper className={classes.title}>
             <Typography variant="h5">{GameMode[state.mode].name}</Typography>
-          </Grid>
-          {allowedLink.some((item) => item === location.pathname) && (
-            <Grid item xs={12} md={6} className={classes.paper}>
+          </Paper>
+        </Grid>
+        {allowed && (
+          <Grid item xs={12} md={6}>
+            <Paper className={classes.paper}>
               <FormControl fullWidth variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-amount">
                   تعداد بازیکنان
@@ -86,10 +79,10 @@ export const GameGroundHeader: React.FC<GameGroundProps> = ({
                   labelWidth={95}
                 />
               </FormControl>
-            </Grid>
-          )}
-        </Grid>
-      </Paper>
+            </Paper>
+          </Grid>
+        )}
+      </Grid>
     </>
   );
 };

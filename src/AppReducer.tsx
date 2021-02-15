@@ -64,7 +64,6 @@ export function HeaderReducer(state: GameState, action: HeaderAction) {
         playerRoles: [...state.playerRoles, action.payload],
       };
     case "isDead":
-      console.log(action.payload.id);
       return {
         ...state,
         playerRoles: state.playerRoles.map((props) =>

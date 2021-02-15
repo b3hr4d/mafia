@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
       border: `1px solid ${theme.palette.primary.main}`,
       width: "125px",
       margin: theme.spacing(1),
-      borderRadius: theme.spacing(1),
+      borderRadius: theme.spacing(0.5),
       paddingRight: theme.spacing(1),
     },
     unCheckBox: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
       border: "1px solid",
       width: "125px",
       margin: theme.spacing(1),
-      borderRadius: theme.spacing(1),
+      borderRadius: theme.spacing(0.5),
       paddingRight: theme.spacing(1),
     },
   })
@@ -118,12 +118,11 @@ export const GameRoles: React.FC<GameRolesProps> = ({ state, dispatch }) => {
     if (badRemain > 0) {
       Array.from(Array(badRemain), (_) => filler.push("mafiaSade"));
     }
-    console.log(filler, state.roles);
     dispatch({
       type: "FinalRoles",
       payload: filler,
     });
-    history.push("/mafia/takerol");
+    history.push("/takerol");
   };
   const deleteHandler = () => {
     dispatch({

@@ -65,6 +65,8 @@ export const shahrvands = {
   negahban: "نگهبان",
   bazgo: "بازجو",
   ghomarbaz: "قمارباز",
+  doctor: "دکتر",
+  karagah: "کاراگاه",
 };
 export const mafias = {
   godfather: "گادفادر",
@@ -116,6 +118,8 @@ export const shahrvandArray = [
   "negahban",
   "bazgo",
   "ghomarbaz",
+  "doctor",
+  "karagah",
   "shahrvandSade",
 ];
 export const mafiaArray = [
