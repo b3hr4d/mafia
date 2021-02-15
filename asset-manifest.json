@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mafia/static/css/main.7d180cbf.chunk.css",
-    "main.js": "/mafia/static/js/main.3c8e3346.chunk.js",
-    "main.js.map": "/mafia/static/js/main.3c8e3346.chunk.js.map",
+    "main.js": "/mafia/static/js/main.2d08cd0d.chunk.js",
+    "main.js.map": "/mafia/static/js/main.2d08cd0d.chunk.js.map",
     "runtime-main.js": "/mafia/static/js/runtime-main.72bcf095.js",
     "runtime-main.js.map": "/mafia/static/js/runtime-main.72bcf095.js.map",
     "static/js/2.37adad0c.chunk.js": "/mafia/static/js/2.37adad0c.chunk.js",
@@ -14,6 +14,7 @@
     "static/media/ahangar.9742db38.jpg": "/mafia/static/media/ahangar.9742db38.jpg",
     "static/media/ankabot.9742db38.jpg": "/mafia/static/media/ankabot.9742db38.jpg",
     "static/media/bazgo.9742db38.jpg": "/mafia/static/media/bazgo.9742db38.jpg",
+    "static/media/doctor.9742db38.jpg": "/mafia/static/media/doctor.9742db38.jpg",
     "static/media/dozd.9742db38.jpg": "/mafia/static/media/dozd.9742db38.jpg",
     "static/media/farmandeh.9742db38.jpg": "/mafia/static/media/farmandeh.9742db38.jpg",
     "static/media/feramason.9742db38.jpg": "/mafia/static/media/feramason.9742db38.jpg",
@@ -23,6 +24,7 @@
     "static/media/godfather.9742db38.jpg": "/mafia/static/media/godfather.9742db38.jpg",
     "static/media/joker.9742db38.jpg": "/mafia/static/media/joker.9742db38.jpg",
     "static/media/kaboy.9742db38.jpg": "/mafia/static/media/kaboy.9742db38.jpg",
+    "static/media/karagah.9742db38.jpg": "/mafia/static/media/karagah.9742db38.jpg",
     "static/media/keshish.9742db38.jpg": "/mafia/static/media/keshish.9742db38.jpg",
     "static/media/kharabkar.9742db38.jpg": "/mafia/static/media/kharabkar.9742db38.jpg",
     "static/media/killer.9742db38.jpg": "/mafia/static/media/killer.9742db38.jpg",
@@ -50,6 +52,6 @@
     "static/js/runtime-main.72bcf095.js",
     "static/js/2.37adad0c.chunk.js",
     "static/css/main.7d180cbf.chunk.css",
-    "static/js/main.3c8e3346.chunk.js"
+    "static/js/main.2d08cd0d.chunk.js"
   ]
 }
