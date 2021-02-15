@@ -43,7 +43,7 @@ export const PlayGame: React.FC<PlaygameProps> = ({ state, dispatch }) => {
 
   const newGameHandler = () => {
     dispatch({ type: "NewGame" });
-    history.push("/");
+    history.push("/mafia/");
   };
   return (
     <Grid container spacing={3} className={classes.root}>

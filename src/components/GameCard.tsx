@@ -33,7 +33,7 @@ const GameCard: React.FC<GameCardProps> = ({ title, link, dispatch }) => {
   const history = useHistory();
 
   const cardHandler = () => {
-    if (link === "/roles") dispatch({ type: "NewGame" });
+    if (link === "/mafia/roles") dispatch({ type: "NewGame" });
     history.push(link);
   };
 

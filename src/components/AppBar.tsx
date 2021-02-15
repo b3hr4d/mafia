@@ -150,7 +150,7 @@ export const AppBarDrawer: React.FC<AppBarProps> = ({ state, dispatch }) => {
           <ListItem
             button
             onClick={() => {
-              history.push("/");
+              history.push("/mafia/");
               setOpen(false);
             }}
           >

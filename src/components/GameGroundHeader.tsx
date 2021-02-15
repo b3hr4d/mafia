@@ -36,7 +36,7 @@ interface GameGroundProps {
   state: GameState;
   dispatch: Dispatch<HeaderAction>;
 }
-const allowedLink = ["/", "/roles"];
+const allowedLink = ["/mafia/", "/mafia/roles"];
 
 export const GameGroundHeader: React.FC<GameGroundProps> = ({
   state,
